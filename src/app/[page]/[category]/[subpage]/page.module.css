@@ -1,0 +1,17 @@
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.content a {
+  color: cadetblue;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 25px;
+}
+.content h2 {
+  font-size: 22px;
+  font-weight: 700;
+}

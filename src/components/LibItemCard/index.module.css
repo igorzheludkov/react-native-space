@@ -1,0 +1,15 @@
+.itemCard {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.itemCard h2 {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.itemCard p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}

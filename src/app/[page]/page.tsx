@@ -1,9 +1,16 @@
 import { api } from '@/constants/global'
 import { Category, Post } from '@/models/content'
 import fetchData from '@/utils/fetchData'
+import styles from './page.module.css'
+import LibItemCard from '@/components/LibItemCard'
 
-type CategoryCard = {
+type RouteParams = {
+  page: string
+}
+
+export type CategoryCard = {
   categoryTitle: string
+  categorySlug: string
   data: Post[]
 }
 
@@ -14,9 +21,9 @@ export async function generateMetadata() {
   }
 }
 
-export default async function Page({ params }: { params: any }) {
+export default async function Page({ params }: { params: RouteParams }) {
   const allCategories = await fetchData(api.categories)
-  const parentCategory = allCategories.find((category: Category) => category.slug === params.slug)
+  const parentCategory = allCategories.find((category: Category) => category.slug === params.page)
   const parentSubcategories = allCategories.filter(
     (category: Category) => category.parent === parentCategory.id
   )
@@ -25,28 +32,16 @@ export default async function Page({ params }: { params: any }) {
     const data = allPosts.filter((post: Post) => post.categories.includes(category.id))
     return {
       categoryTitle: category.name,
+      categorySlug: category.slug,
       data
     }
   })
 
   return (
-    <main style={{ maxWidth: 1200, marginInline: 'auto', padding: 20 }}>
+    <main className={styles.wrapper}>
       {content.map((category: CategoryCard) => {
         if (category.data.length) {
-          return (
-            <div key={category.categoryTitle}>
-              <h2>{category.categoryTitle}</h2>
-              <div>
-                {category.data.map((post: Post) => (
-                  <div key={post.id}>
-                    <h3>{post.title.rendered}</h3>
-                    <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}></div>
-                  </div>
-                ))}
-              </div>
-              <hr />
-            </div>
-          )
+          return <LibItemCard key={category.categoryTitle} category={category} parentCategory={params.page} />
         }
       })}
     </main>
