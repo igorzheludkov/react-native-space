@@ -16,7 +16,7 @@ export type Post = {
   slug: string
   content: { rendered: string }
   excerpt: { rendered: string }
-  acf: { rating: number }
+  acf: { rating: number; icon: string }
   yoast_head_json: YoastSeo
 }
 

@@ -34,11 +34,15 @@
   margin-right: 0;
 }
 
-.menu__items a {
+.menu__link {
   text-decoration: none;
   color: #333;
 }
 
 .menu__items a:hover {
+  text-decoration: underline;
+}
+
+.active {
   text-decoration: underline;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { api } from '@/constants/global'
-import { Category, Page } from '@/models/content'
+import { Category, Page } from '@/models/contentTypes'
 import fetchData from '@/utils/fetchData'
 import generateMetaHelper from '@/utils/generateMetaHelper'
 import styles from './page.module.css'

@@ -9,7 +9,24 @@
   margin: 5px 0;
 }
 
-.itemCard p {
-  font-size: 14px;
+.itemCard a {
+  text-decoration: none;
+}
+
+.libIcon {
+  padding-right: 5px;
+}
+
+.lib {
+  font-size: 16px;
   margin-bottom: 4px;
+  text-decoration: none;
+  margin: 0;
+}
+
+.libContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35px;
 }

@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar'
 import { api, constants } from '@/constants/global'
 import { Providers } from '@/redux/provider'
 import fetchData from '@/utils/fetchData'
-import { Category } from '@/models/content'
+import { Category } from '@/models/contentTypes'
 
 export const metadata = {
   title: 'React Native Space',

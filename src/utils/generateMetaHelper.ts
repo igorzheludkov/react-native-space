@@ -1,4 +1,4 @@
-import { YoastSeo } from '@/models/content'
+import { YoastSeo } from '@/models/contentTypes'
 
 export default function generateMetaHelper(meta: YoastSeo) {
   return {
@@ -16,8 +16,8 @@ export default function generateMetaHelper(meta: YoastSeo) {
             }
           ]
         : undefined,
-        locale: 'ua_uk',
-        // url: meta.url,
+      locale: 'ua_uk'
+      // url: meta.url,
     }
   }
 }

@@ -1,5 +1,5 @@
 import { api } from '@/constants/global'
-import { Category, Post } from '@/models/content'
+import { Category, Post } from '@/models/contentTypes'
 import fetchData from '@/utils/fetchData'
 import styles from './page.module.css'
 import LibItemCard from '@/components/LibItemCard'
@@ -24,7 +24,7 @@ export async function generateMetadata() {
 export default async function Page({ params }: { params: RouteParams }) {
   const allCategories = await fetchData(api.categories)
   const allPosts = await fetchData(api.posts)
-  
+
   const parentCategory = allCategories.find((category: Category) => category.slug === params.page)
   const parentSubcategories = allCategories.filter(
     (category: Category) => category.parent === parentCategory.id

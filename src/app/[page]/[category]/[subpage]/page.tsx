@@ -1,6 +1,6 @@
 import React from 'react'
 import { api } from '@/constants/global'
-import { Post } from '@/models/content'
+import { Post } from '@/models/contentTypes'
 import fetchData from '@/utils/fetchData'
 import styles from './page.module.css'
 import generateMetaHelper from '@/utils/generateMetaHelper'

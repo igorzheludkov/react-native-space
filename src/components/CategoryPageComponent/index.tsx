@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { usePathname } from 'next/navigation'
-import { Post, Page } from '@/models/content'
+import { Post, Page } from '@/models/contentTypes'
 import styles from './index.module.css'
 import Link from 'next/link'
 
