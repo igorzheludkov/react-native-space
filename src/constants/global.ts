@@ -1,6 +1,7 @@
 const constants = {
   navCategory: 15,
-  siteName: 'React Native Space'
+  siteName: 'React Native Space',
+  siteUrl: 'https://react-native.space',
 }
 
 const api = {

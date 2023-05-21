@@ -4,16 +4,10 @@ export type Category = {
   name: string
   slug: string
   parent: number
+  _links: {
+    'wp:post_type': { href: string }[]
+  }
 }
-// only for the page assigned to the category
-export type CategoryPage = {
-  id: number
-  name: string
-  slug: string
-  parent: number
-  yoast_head_json: YoastSeo
-}
-
 
 export type Post = {
   id: number
@@ -43,10 +37,12 @@ export type YoastSeo = {
   og_locale: string
   og_title: string
   og_description: string
-  og_image: [{
-    width: number
-    height: number
-    url: string
-    type: string
-  }]
+  og_image: [
+    {
+      width: number
+      height: number
+      url: string
+      type: string
+    }
+  ]
 }

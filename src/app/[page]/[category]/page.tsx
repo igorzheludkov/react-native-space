@@ -4,42 +4,43 @@ import { Category, Page } from '@/models/content'
 import fetchData from '@/utils/fetchData'
 import generateMetaHelper from '@/utils/generateMetaHelper'
 import styles from './page.module.css'
+import CategoryPageComponent from '@/components/CategoryPageComponent'
+import Link from 'next/link'
 
 type RouteParams = {
   category: string
 }
 
-async function getCurrentPage(params: RouteParams) {
+async function getCurrentCategory(params: RouteParams) {
   const allPages = await fetchData(api.pages)
   const allCategories = await fetchData(api.categories)
   const currentCategory: Category = allCategories.find(
     (category: Category) => category.slug === params.category
   )
-
-  const currentPage: Page | undefined = allPages.find(
+  const categoryPosts = await fetchData(currentCategory._links['wp:post_type'][0].href)
+  const categoryPage: Page | undefined = allPages.find(
     (page: Page) => page.categories[0] === currentCategory.id
   )
 
-  return currentPage
+  return { categoryPage, categoryPosts }
 }
 
 export async function generateMetadata({ params }: { params: RouteParams }) {
-  const page = await getCurrentPage(params)
+  const { categoryPage } = await getCurrentCategory(params)
 
-  if (page) {
-    return generateMetaHelper(page.yoast_head_json)
+  if (categoryPage) {
+    return generateMetaHelper(categoryPage.yoast_head_json)
   } else return {}
 }
 
 export default async function Category({ params }: { params: RouteParams }) {
-  const page = await getCurrentPage(params)
+  const { categoryPage, categoryPosts } = await getCurrentCategory(params)
 
-  if (page) {
+  if (categoryPage) {
     return (
-      <div>
-        <h1 className={styles.title}>{page.title.rendered}</h1>
-        <div className={styles.content} dangerouslySetInnerHTML={{ __html: page.content.rendered }}></div>
-      </div>
+      <>
+        <CategoryPageComponent categoryPage={categoryPage} categoryPosts={categoryPosts} />
+      </>
     )
   }
 }

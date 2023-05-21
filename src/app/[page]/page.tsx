@@ -23,11 +23,12 @@ export async function generateMetadata() {
 
 export default async function Page({ params }: { params: RouteParams }) {
   const allCategories = await fetchData(api.categories)
+  const allPosts = await fetchData(api.posts)
+  
   const parentCategory = allCategories.find((category: Category) => category.slug === params.page)
   const parentSubcategories = allCategories.filter(
     (category: Category) => category.parent === parentCategory.id
   )
-  const allPosts = await fetchData(api.posts)
   const content = parentSubcategories.map((category: Category) => {
     const data = allPosts.filter((post: Post) => post.categories.includes(category.id))
     return {

@@ -3,8 +3,6 @@
   font-weight: 700;
 }
 
-
-
 .content a {
   color: cadetblue;
 }
@@ -18,11 +16,14 @@
   font-weight: 700;
 }
 
-
 .subTitle {
   font-size: 22px;
 }
 .subContent p {
   font-size: 18px;
   line-height: 25px;
+}
+
+.post a {
+  font-size: 16px;
 }
