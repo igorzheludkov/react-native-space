@@ -11,7 +11,9 @@ type Props = {
 export default function LibItemCard({ category, parentCategory }: Props) {
   return (
     <div className={styles.itemCard} key={category.categoryTitle}>
-      <h2>{category.categoryTitle}</h2>
+      <Link href={`/${parentCategory}/${category.categorySlug}`}>
+        <h2>{category.categoryTitle}</h2>
+      </Link>
       <div>
         {category.data.map((post) => (
           <div key={post.id}>
