@@ -17,7 +17,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang='uk'>
-      <body>
+      <body style={{marginTop: '85px'}}>
         <Providers>
           <>
             <Navbar items={navMenus} />
