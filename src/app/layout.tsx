@@ -1,4 +1,4 @@
-// import './globals.css'
+import './globals.css'
 import Navbar from '@/components/Navbar'
 import { api, constants } from '@/constants/global'
 import { Providers } from '@/redux/provider'

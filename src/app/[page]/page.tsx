@@ -30,7 +30,13 @@ export default async function Page({ params }: { params: RouteParams }) {
     (category: Category) => category.parent === parentCategory.id
   )
   const content = parentSubcategories.map((category: Category) => {
-    const data = allPosts.filter((post: Post) => post.categories.includes(category.id))
+    const data = allPosts
+      .filter((post: Post) => post.categories.includes(category.id))
+      .sort((a: Post, b: Post) => {
+        const ratingA = a.acf.rating
+        const ratingB = b.acf.rating
+        return ratingA - ratingB
+      })
     return {
       categoryTitle: category.name,
       categorySlug: category.slug,
