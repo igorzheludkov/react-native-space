@@ -18,21 +18,23 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang='uk'>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-N8HE2Q3C3T" />
+      <Script
+        src='https://www.googletagmanager.com/gtag/js?id=GTM-TJNDW2C'
+      />
       <Script id='google-analytics' strategy='afterInteractive'>
         {`
            window.dataLayer = window.dataLayer || [];
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
          
-           gtag('config', 'G-N8HE2Q3C3T');
+           gtag('config', 'GTM-TJNDW2C');
         `}
       </Script>
 
       <body style={{ marginTop: '85px' }}>
         <noscript>
           <iframe
-            src='https://www.googletagmanager.com/ns.html?id=G-N8HE2Q3C3T'
+            src='https://www.googletagmanager.com/ns.html?id=GTM-TJNDW2C'
             height='0'
             width='0'
             style={{ display: 'none', visibility: 'hidden' }}
