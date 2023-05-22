@@ -19,7 +19,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang='uk'>
       <Script
-        src='https://www.googletagmanager.com/gtag/js?id=GTM-TJNDW2C'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTM_KEY}`}
       />
       <Script id='google-analytics' strategy='afterInteractive'>
         {`
@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
          
-           gtag('config', 'GTM-TJNDW2C');
+           gtag('config', '${process.env.GTM_KEY}');
         `}
       </Script>
 
