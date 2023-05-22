@@ -32,14 +32,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </Script> */}
 
       <body style={{ marginTop: '85px' }}>
-        <noscript>
+        {/* <noscript>
           <iframe
             src='https://www.googletagmanager.com/ns.html?id=GTM-TJNDW2C'
             height='0'
             width='0'
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
-        </noscript>
+        </noscript> */}
         <Providers>
           <>
             <Navbar items={navMenus} />
