@@ -4,6 +4,7 @@ import { api, constants } from '@/constants/global'
 import { Providers } from '@/redux/provider'
 import fetchData from '@/utils/fetchData'
 import { Category } from '@/models/contentTypes'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'React Native Space',
@@ -17,7 +18,26 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang='uk'>
-      <body style={{marginTop: '85px'}}>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-N8HE2Q3C3T" />
+      <Script id='google-analytics' strategy='afterInteractive'>
+        {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+         
+           gtag('config', 'G-N8HE2Q3C3T');
+        `}
+      </Script>
+
+      <body style={{ marginTop: '85px' }}>
+        <noscript>
+          <iframe
+            src='https://www.googletagmanager.com/ns.html?id=G-N8HE2Q3C3T'
+            height='0'
+            width='0'
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         <Providers>
           <>
             <Navbar items={navMenus} />
