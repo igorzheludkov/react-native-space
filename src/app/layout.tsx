@@ -18,7 +18,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang='uk'>
-      {/* <Script
+      <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTM_KEY}`}
       />
       <Script id='google-analytics' strategy='afterInteractive'>
@@ -29,17 +29,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
          
            gtag('config', '${process.env.GTM_KEY}');
         `}
-      </Script> */}
+      </Script>
 
       <body style={{ marginTop: '85px' }}>
-        {/* <noscript>
+        <noscript>
           <iframe
-            src='https://www.googletagmanager.com/ns.html?id=GTM-TJNDW2C'
+            src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM_KEY}`}
             height='0'
             width='0'
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
-        </noscript> */}
+        </noscript>
         <Providers>
           <>
             <Navbar items={navMenus} />
