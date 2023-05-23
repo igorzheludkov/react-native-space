@@ -37,10 +37,12 @@ export default async function Category({ params }: { params: RouteParams }) {
   const { categoryPage, categoryPosts } = await getCurrentCategory(params)
 
   if (categoryPage) {
+    return <CategoryPageComponent categoryPage={categoryPage} categoryPosts={categoryPosts} />
+  } else {
     return (
-      <>
-        <CategoryPageComponent categoryPage={categoryPage} categoryPosts={categoryPosts} />
-      </>
+      <div>
+        <h1>Category not found</h1>
+      </div>
     )
   }
 }
