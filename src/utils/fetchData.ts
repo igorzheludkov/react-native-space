@@ -1,6 +1,6 @@
 export default async function fetchData(url: string) {
   const response = await fetch(url, {
-    next: { revalidate: 120 },
+    next: { revalidate: 10 },
     headers: {
       Accept: 'application/json'
     }
